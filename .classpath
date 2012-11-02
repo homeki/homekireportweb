@@ -3,6 +3,15 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/objectify-3.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org.codehaus.jackson.core.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org.codehaus.jackson.mapper.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org.restlet.ext.jackson.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org.restlet.ext.servlet.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org.restlet.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/objectify-appengine-4.0b1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://objectify-appengine.googlecode.com/git/javadoc/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

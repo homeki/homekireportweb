@@ -54,15 +54,17 @@ public class InstanceReportResource extends ServerResource {
 		htmlString.append("</head>");
 		htmlString.append("<body>");
 		htmlString.append("<table cellspacing=\"0\" cellpadding=\"3\" style=\"width:100%;\">");
-		htmlString.append("<tr><th>MAC address</th><th>Server name</th><th>Version</th><th>Device count</th><th>History point row count</th></tr>");
+		htmlString.append("<tr><th>MAC address</th><th>Server name</th><th>Last seen</th><th>Version</th><th>Device count</th><th>History point row count</th></tr>");
 		
 		for (Instance ins : instances) {
 			htmlString.append("<tr>");
 			htmlString.append("<td>" + ins.getMacAddress() + "</td>");
 			htmlString.append("<td>" + ins.getServerName() + "</td>");
+			htmlString.append("<td>" + ins.getLastSeen() + "</td>");
 			htmlString.append("<td>" + ins.getVersion() + "</td>");
 			htmlString.append("<td>" + ins.getDeviceCount() + "</td>");
 			htmlString.append("<td>" + ins.getHistoryPointRowCount() + "</td>");
+			htmlString.append("</tr>");
 		}
 		
 		htmlString.append("</table>");

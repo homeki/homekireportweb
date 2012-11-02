@@ -1,4 +1,4 @@
-package com.homeki.reportweb.store;
+package com.homeki.reportweb.datastore;
 
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyFactory;

@@ -1,4 +1,4 @@
-package com.homeki.reportweb.rest;
+package com.homeki.reportweb.servlet;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.homeki.reportweb.store;
+package com.homeki.reportweb.datastore;
 
 import java.util.Date;
 

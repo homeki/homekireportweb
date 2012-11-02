@@ -5,6 +5,8 @@ import static com.homeki.reportweb.datastore.OfyService.ofy;
 import java.util.Calendar;
 import java.util.List;
 
+import org.restlet.data.Status;
+import org.restlet.resource.Delete;
 import org.restlet.resource.Get;
 import org.restlet.resource.Put;
 import org.restlet.resource.ServerResource;
@@ -26,6 +28,18 @@ public class InstanceReportResource extends ServerResource {
 		instance.setHistoryPointRowCount(insreport.getHistoryPointRowCount());
 		
 		ofy().save().entity(instance).now();
+	}
+	
+	@Delete
+	public void remove() {
+		String macAddress = getQuery().getFirstValue("mac", true);
+		
+		if (macAddress == null) {
+			setStatus(Status.CLIENT_ERROR_BAD_REQUEST, "Missing 'mac' argument.");
+			return;
+		}
+		
+		ofy().delete().type(Instance.class).id(macAddress).now();
 	}
 	
 	@Get("html")

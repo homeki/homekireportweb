@@ -13,6 +13,8 @@ public class Instance {
 	private String version;
 	private String serverName;
 	private Date lastSeen;
+    private long historyPointRowCount;
+    private int deviceCount;
 	
 	public Instance() {
 		
@@ -36,5 +38,33 @@ public class Instance {
 
 	public String getMacAddress() {
 		return macAddress;
+	}
+
+	public String getVersion() {
+		return version;
+	}
+
+	public String getServerName() {
+		return serverName;
+	}
+
+	public Date getLastSeen() {
+		return lastSeen;
+	}
+
+	public long getHistoryPointRowCount() {
+		return historyPointRowCount;
+	}
+
+	public int getDeviceCount() {
+		return deviceCount;
+	}
+
+	public void setHistoryPointRowCount(long historyPointRowCount) {
+		this.historyPointRowCount = historyPointRowCount;
+	}
+
+	public void setDeviceCount(int deviceCount) {
+		this.deviceCount = deviceCount;
 	}
 }

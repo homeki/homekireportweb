@@ -7,7 +7,6 @@ import com.googlecode.objectify.ObjectifyService;
 public class OfyService {
     static {
         factory().register(Instance.class);
-        factory().register(Report.class);
     }
 
     public static Objectify ofy() {

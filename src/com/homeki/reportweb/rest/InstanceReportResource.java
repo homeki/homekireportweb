@@ -9,27 +9,22 @@ import org.restlet.resource.Put;
 import org.restlet.resource.ServerResource;
 
 import com.homeki.reportweb.store.Instance;
-import com.homeki.reportweb.store.Report;
 
 public class InstanceReportResource extends ServerResource {
 	@Put("json")
 	public void store(InstanceReport insreport) {
 		Instance instance = ofy().load().type(Instance.class).id(insreport.getMacAddress()).get();
 		
-		if (instance == null) {
+		if (instance == null)
 			instance = new Instance(insreport.getMacAddress());
-			instance.setServerName(insreport.getServerName());
-			instance.setVersion(insreport.getVersion());
-		}
 		
 		instance.setLastSeen(Calendar.getInstance().getTime());
+		instance.setServerName(insreport.getServerName());
+		instance.setVersion(insreport.getVersion());
+		instance.setDeviceCount(insreport.getDeviceCount());
+		instance.setHistoryPointRowCount(insreport.getHistoryPointRowCount());
 		
-		Report report = new Report(instance);
-		report.setDeviceCount(insreport.getDeviceCount());
-		report.setHistoryPointRowCount(insreport.getHistoryPointRowCount());
-		report.setSystemLoad(insreport.getSystemLoad());
-		
-		ofy().save().entities(instance, report).now();
+		ofy().save().entities(instance).now();
 	}
 	
 	@Get

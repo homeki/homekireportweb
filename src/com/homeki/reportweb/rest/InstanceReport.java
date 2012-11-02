@@ -10,9 +10,8 @@ public class InstanceReport implements Serializable {
     private String version;
     private long historyPointRowCount;
     private int deviceCount;
-    private double systemLoad;
-    
-	public String getServerName() {
+
+    public String getServerName() {
 		return serverName;
 	}
 
@@ -32,10 +31,6 @@ public class InstanceReport implements Serializable {
 		return deviceCount;
 	}
 	
-	public double getSystemLoad() {
-		return systemLoad;
-	}
-	
 	public void setMacAddress(String macAddress) {
 		this.macAddress = macAddress;
 	}
@@ -48,10 +43,6 @@ public class InstanceReport implements Serializable {
 		this.deviceCount = deviceCount;
 	}
 	
-	public void setSystemLoad(double systemLoad) {
-		this.systemLoad = systemLoad;
-	}
-
 	public void setServerName(String serverName) {
 		this.serverName = serverName;
 	}

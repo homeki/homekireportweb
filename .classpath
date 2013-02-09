@@ -13,5 +13,6 @@
 			<attribute name="javadoc_location" value="http://objectify-appengine.googlecode.com/git/javadoc/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/v2"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

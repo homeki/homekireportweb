@@ -1,27 +1,26 @@
 package com.homeki.reportweb.datastore;
 
-import java.util.Date;
-
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
+import java.util.Date;
 
 @Entity
 public class Instance {
 	@Id
-	private String macAddress;
+	private String serverUuid;
 	private String version;
 	private String serverName;
 	private Date lastSeen;
-    private long historyPointRowCount;
-    private int deviceCount;
-	
+	private long historyPointRowCount;
+	private int deviceCount;
+
 	public Instance() {
-		
+
 	}
-	
-	public Instance(String macAddress) {
-		this.macAddress = macAddress;
+
+	public Instance(String serverUuid) {
+		this.serverUuid = serverUuid;
 	}
 
 	public void setVersion(String version) {
@@ -36,8 +35,8 @@ public class Instance {
 		this.lastSeen = lastSeen;
 	}
 
-	public String getMacAddress() {
-		return macAddress;
+	public String getServerUuid() {
+		return serverUuid;
 	}
 
 	public String getVersion() {

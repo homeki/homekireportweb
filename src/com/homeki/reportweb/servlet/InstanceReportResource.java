@@ -1,25 +1,24 @@
 package com.homeki.reportweb.servlet;
 
-import static com.homeki.reportweb.datastore.OfyService.ofy;
-
-import java.util.Calendar;
-import java.util.List;
-
+import com.homeki.reportweb.datastore.Instance;
 import org.restlet.data.Status;
 import org.restlet.resource.Delete;
 import org.restlet.resource.Get;
 import org.restlet.resource.Put;
 import org.restlet.resource.ServerResource;
 
-import com.homeki.reportweb.datastore.Instance;
+import java.util.Calendar;
+import java.util.List;
+
+import static com.homeki.reportweb.datastore.OfyService.ofy;
 
 public class InstanceReportResource extends ServerResource {
 	@Put("json")
 	public void store(InstanceReport insreport) {
-		Instance instance = ofy().load().type(Instance.class).id(insreport.getMacAddress()).get();
+		Instance instance = ofy().load().type(Instance.class).id(insreport.getServerUuid()).get();
 		
 		if (instance == null)
-			instance = new Instance(insreport.getMacAddress());
+			instance = new Instance(insreport.getServerUuid());
 		
 		instance.setLastSeen(Calendar.getInstance().getTime());
 		instance.setServerName(insreport.getServerName());
@@ -54,11 +53,11 @@ public class InstanceReportResource extends ServerResource {
 		htmlString.append("</head>");
 		htmlString.append("<body>");
 		htmlString.append("<table cellspacing=\"0\" cellpadding=\"3\" style=\"width:100%;\">");
-		htmlString.append("<tr><th>MAC address</th><th>Server name</th><th>Last seen</th><th>Version</th><th>Device count</th><th>History point row count</th></tr>");
+		htmlString.append("<tr><th>Server uuid</th><th>Server name</th><th>Last seen</th><th>Version</th><th>Device count</th><th>History point row count</th></tr>");
 		
 		for (Instance ins : instances) {
 			htmlString.append("<tr>");
-			htmlString.append("<td>" + ins.getMacAddress() + "</td>");
+			htmlString.append("<td>" + ins.getServerUuid() + "</td>");
 			htmlString.append("<td>" + ins.getServerName() + "</td>");
 			htmlString.append("<td>" + ins.getLastSeen() + "</td>");
 			htmlString.append("<td>" + ins.getVersion() + "</td>");

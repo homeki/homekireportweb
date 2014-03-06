@@ -3,24 +3,24 @@ package com.homeki.reportweb.servlet;
 import java.io.Serializable;
 
 public class InstanceReport implements Serializable {
-    private static final long serialVersionUID = 1L;
-    
-    private String macAddress;
-    private String serverName;
-    private String version;
-    private long historyPointRowCount;
-    private int deviceCount;
+	private static final long serialVersionUID = 1L;
 
-    public String getServerName() {
-		return serverName;
-	}
+	private String serverUuid;
+	private String serverName;
+	private String version;
+	private long historyPointRowCount;
+	private int deviceCount;
+
+	public String getServerName() {
+	return serverName;
+}
 
 	public String getVersion() {
 		return version;
 	}
     
-	public String getMacAddress() {
-		return macAddress;
+	public String getServerUuid() {
+		return serverUuid;
 	}
 	
 	public long getHistoryPointRowCount() {
@@ -31,8 +31,8 @@ public class InstanceReport implements Serializable {
 		return deviceCount;
 	}
 	
-	public void setMacAddress(String macAddress) {
-		this.macAddress = macAddress;
+	public void setServerUuid(String serverUuid) {
+		this.serverUuid = serverUuid;
 	}
 	
 	public void setHistoryPointRowCount(long historyPointRowCount) {
